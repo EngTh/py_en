@@ -41,6 +41,7 @@ class learning(object):
                 pass
             for i in range(0, len(wordVector_onre)):
                 if countVector_display[i] < 5:
+                    wordVector_onre[i].PlayOral()
                     print("**********单词复习**********")
                     print("en_us:" + wordVector_onre[i].en_us)
                     print("zh_cn:" + wordVector_onre[i].zh_cn)

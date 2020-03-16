@@ -8,7 +8,7 @@ class vocabulary_database(object):
     date = "19700101"
 
     def __init__(self):
-        self.path = u'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=' + r"./en_us.accdb"
+        self.path = u'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=' + r"./db/en_us.accdb"
         self.db = pypyodbc.win_connect_mdb(self.path)
         self.cur = self.db.cursor()
         pass
@@ -27,7 +27,7 @@ class vocabulary_database(object):
         pass
 
     def InsertAWord(self, single_word: word):
-        sql = "Insert Into " + "TOEFL" + " Values (" + single_word.en_us + "," + single_word.zh_cn + "," + self.date + ")"
+        sql = "Insert Into " + "TOEFL" + " Values ('" + single_word.en_us + "','" + single_word.zh_cn + "'," + self.date + ")"
         try:
             self.cur.execute(sql)
             self.db.commit()

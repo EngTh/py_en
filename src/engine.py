@@ -39,6 +39,7 @@ class learning(object):
                     indexVector.insert(len(wordVector_onre), counter)
                     del wordVector_left[0]
                 else:
+                    break
                     pass
                 pass
             for i in range(0, len(wordVector_onre)):
@@ -88,14 +89,26 @@ class learning(object):
                         pass
                     pass
                 pass
+            flag = False
             for i in range(0, len(wordVector_onre)):
                 if countVector_recite[i] == 2:
-                    del wordVector_onre[i]
-                    del countVector_display[i]
-                    del countVector_recite[i]
-                    del indexVector[i]
+                    flag = True
+            while flag:
+                for i in range(0, len(wordVector_onre)):
+                    if countVector_recite[i] == 2:
+                        del wordVector_onre[i]
+                        del countVector_display[i]
+                        del countVector_recite[i]
+                        del indexVector[i]
+                        break
+                        pass
                     pass
-                pass
+                flag = False
+                for i in range(0, len(wordVector_onre)):
+                    if countVector_recite[i] == 2:
+                        flag = True
+                        pass
+                    pass
             pass
         return
 
